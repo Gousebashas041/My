@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CreatorForge Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div>
+        <p class="eyebrow">CreatorForge Studio</p>
+        <h1>All-in-one video, photo, and audio editing app with built-in monetization.</h1>
+        <p class="subtext">
+          Run your creative business from one dashboard: edit content, package premium exports, and track recurring revenue.
+        </p>
+      </div>
+      <aside class="kpi-card">
+        <h2>Revenue Snapshot</h2>
+        <p><strong id="mrrValue">$0</strong> monthly recurring revenue</p>
+        <p><span id="activeSubs">0</span> active subscribers</p>
+        <button id="simulateSignup">Simulate new subscription</button>
+      </aside>
+    </header>
+
+    <main>
+      <nav class="tabs" aria-label="Editors">
+        <button class="tab active" data-target="photoPanel">Photo</button>
+        <button class="tab" data-target="audioPanel">Audio</button>
+        <button class="tab" data-target="videoPanel">Video</button>
+        <button class="tab" data-target="businessPanel">Monetization</button>
+      </nav>
+
+      <section id="photoPanel" class="panel active">
+        <h2>Photo Editor (Basic → Advanced)</h2>
+        <div class="grid">
+          <div class="card">
+            <label class="file">
+              Upload Image
+              <input type="file" id="photoInput" accept="image/*" />
+            </label>
+            <div class="control"><label>Brightness</label><input id="brightness" type="range" min="0" max="200" value="100" /></div>
+            <div class="control"><label>Contrast</label><input id="contrast" type="range" min="0" max="200" value="100" /></div>
+            <div class="control"><label>Saturation</label><input id="saturation" type="range" min="0" max="200" value="100" /></div>
+            <div class="control"><label>Blur</label><input id="blur" type="range" min="0" max="20" value="0" /></div>
+            <div class="actions">
+              <button id="rotatePhoto">Rotate 90°</button>
+              <button id="downloadPhoto">Download JPG</button>
+            </div>
+          </div>
+          <div class="card canvas-wrap">
+            <canvas id="photoCanvas" width="960" height="540"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section id="audioPanel" class="panel">
+        <h2>Audio Editor (Podcast + Music Ready)</h2>
+        <div class="grid">
+          <div class="card">
+            <label class="file">
+              Upload Audio
+              <input type="file" id="audioInput" accept="audio/*" />
+            </label>
+            <audio id="audioPlayer" controls></audio>
+            <div class="control"><label>Volume</label><input id="audioVolume" type="range" min="0" max="2" step="0.01" value="1" /></div>
+            <div class="control"><label>Playback Speed</label><input id="audioRate" type="range" min="0.5" max="2" step="0.05" value="1" /></div>
+            <div class="control"><label>EQ Preset</label>
+              <select id="eqPreset">
+                <option value="flat">Flat</option>
+                <option value="voice">Voice Clarity</option>
+                <option value="bass">Bass Boost</option>
+                <option value="radio">Radio Crunch</option>
+              </select>
+            </div>
+            <p class="muted">Advanced chain includes gain + biquad EQ nodes for cleaner mixes.</p>
+          </div>
+          <div class="card">
+            <h3>Audio Product Offers</h3>
+            <ul>
+              <li>Sell "Podcast polish" presets as an upsell.</li>
+              <li>Bundle custom intros + outro mastering.</li>
+              <li>Offer premium exports with loudness normalization.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="videoPanel" class="panel">
+        <h2>Video Editor (Creator + Ads Workflow)</h2>
+        <div class="grid">
+          <div class="card">
+            <label class="file">
+              Upload Video
+              <input type="file" id="videoInput" accept="video/*" />
+            </label>
+            <video id="videoPlayer" controls></video>
+            <div class="control"><label>Playback Speed</label><input id="videoRate" type="range" min="0.25" max="2" step="0.05" value="1" /></div>
+            <div class="control"><label>Color Punch</label><input id="videoSaturate" type="range" min="50" max="200" value="100" /></div>
+            <div class="control"><label>Cinematic Contrast</label><input id="videoContrast" type="range" min="50" max="200" value="100" /></div>
+            <div class="control"><label>Trim Start (sec)</label><input id="trimStart" type="number" min="0" value="0" /></div>
+            <div class="control"><label>Trim End (sec)</label><input id="trimEnd" type="number" min="0" value="30" /></div>
+            <button id="saveVideoPreset">Save video preset</button>
+          </div>
+          <div class="card">
+            <h3>Advanced Pipeline Ideas</h3>
+            <ul>
+              <li>Auto-caption overlays for short-form videos.</li>
+              <li>Template-based exports for Reels, Shorts, and TikTok.</li>
+              <li>AI thumbnail generation as a paid add-on.</li>
+            </ul>
+            <p class="muted">Preset values are stored locally to speed up repetitive editing jobs.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="businessPanel" class="panel">
+        <h2>Monetization Engine</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Pricing Tiers</h3>
+            <div class="pricing">
+              <label><input type="radio" name="plan" value="19" checked /> Starter ($19/mo)</label>
+              <label><input type="radio" name="plan" value="49" /> Pro ($49/mo)</label>
+              <label><input type="radio" name="plan" value="99" /> Agency ($99/mo)</label>
+            </div>
+            <button id="subscribeNow">Add Subscriber</button>
+          </article>
+          <article class="card">
+            <h3>Revenue Strategy Checklist</h3>
+            <ul>
+              <li>Recurring subscriptions for storage + templates.</li>
+              <li>One-time export credits for 4K, Dolby, and RAW packs.</li>
+              <li>Marketplace commission on preset/theme sales.</li>
+              <li>Ad-supported free tier with upgrade prompts.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
