@@ -1,0 +1,139 @@
+:root {
+  color-scheme: dark;
+  --bg: #070b14;
+  --panel: #121a2b;
+  --panel-soft: #1b2337;
+  --text: #f5f7ff;
+  --muted: #9ca9c8;
+  --accent: #4ea1ff;
+  --success: #25c17e;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #15213e, var(--bg) 40%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr minmax(220px, 300px);
+  gap: 1rem;
+  padding: 2rem clamp(1rem, 4vw, 3rem) 1rem;
+}
+
+.eyebrow {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.subtext,
+.muted {
+  color: var(--muted);
+}
+
+.kpi-card,
+.card {
+  background: linear-gradient(180deg, var(--panel-soft), var(--panel));
+  border: 1px solid #25314c;
+  border-radius: 14px;
+  padding: 1rem;
+}
+
+main {
+  padding: 0 clamp(1rem, 4vw, 3rem) 3rem;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tab,
+button,
+.file {
+  background: #1f2942;
+  color: var(--text);
+  border: 1px solid #33446a;
+  border-radius: 10px;
+  padding: 0.6rem 0.9rem;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #08101f;
+  font-weight: 700;
+}
+
+.panel {
+  display: none;
+}
+
+.panel.active {
+  display: block;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.control {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0.8rem 0;
+}
+
+input[type="range"],
+input[type="number"],
+select {
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.file input {
+  display: block;
+  margin-top: 0.45rem;
+}
+
+.canvas-wrap {
+  overflow: auto;
+}
+
+canvas,
+video,
+audio {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+  background: #000;
+}
+
+.pricing {
+  display: grid;
+  gap: 0.5rem;
+}
+
+@media (max-width: 860px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
